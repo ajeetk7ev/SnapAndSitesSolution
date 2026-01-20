@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import connectDB from './config/db.js';
 import contactRoutes from './routes/contactRoutes.js';
-import { errorHandler, notFound } from './middlewares/errorMiddleware.js';
+
 
 dotenv.config();
 
@@ -28,9 +28,8 @@ app.get('/health', (req, res) => {
     });
 });
 
-// Error handling middleware
-app.use(notFound);
-app.use(errorHandler);
+
+
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
