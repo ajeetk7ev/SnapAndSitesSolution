@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Send, Mail, MapPin, Phone, MessageSquare, CheckCircle2, AlertCircle, Clock, Globe } from "lucide-react";
 import { Button } from "../components/ui/button";
 import { details } from "../data/details";
+import { API_URL } from "../utils/api";
 
 const Contact = () => {
     const [formData, setFormData] = useState({ name: "", email: "", subject: "", message: "" });
@@ -15,7 +16,7 @@ const Contact = () => {
         setLoading(true);
         setStatus({ type: "", message: "" });
         try {
-            const res = await axios.post("http://localhost:5000/api/contact", formData);
+            const res = await axios.post(`${API_URL}/contact`, formData);
             setStatus({ type: "success", message: res.data.message || "Message sent successfully!" });
             setFormData({ name: "", email: "", subject: "", message: "" });
         } catch (error) {
