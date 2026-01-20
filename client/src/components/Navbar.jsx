@@ -22,9 +22,12 @@ const Navbar = () => {
     return (
         <header className="sticky top-4 z-50 w-full flex justify-center px-4">
             <nav className="w-[90vw] md:w-[85vw] max-w-7xl h-16 rounded-full border bg-background/80 backdrop-blur-md px-6 flex items-center justify-between shadow-lg">
-                <Link to="/" className="flex items-center space-x-2 shrink-0">
-                    <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                        appandsites
+                <Link to="/" className="flex items-center gap-3 group shrink-0">
+                    <div className="relative h-10 w-10 group-hover:scale-110 transition-transform duration-500">
+                        <img src="/logo.png" alt="Kinetik Digital Logo" className="h-full w-full object-contain mix-blend-screen" />
+                    </div>
+                    <span className="text-xl font-black tracking-tighter bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-600 bg-clip-text text-transparent uppercase group-hover:opacity-80 transition-opacity">
+                        Kinetik Digital
                     </span>
                 </Link>
 
@@ -35,8 +38,8 @@ const Navbar = () => {
                             key={link.name}
                             to={link.path}
                             className={`relative px-4 py-1.5 text-sm font-medium transition-all rounded-full ${location.pathname === link.path
-                                    ? "text-primary-foreground shadow-sm"
-                                    : "text-muted-foreground hover:text-primary"
+                                ? "text-primary-foreground shadow-sm"
+                                : "text-muted-foreground hover:text-primary"
                                 }`}
                         >
                             {location.pathname === link.path && (
@@ -98,8 +101,8 @@ const Navbar = () => {
                                     key={link.name}
                                     to={link.path}
                                     className={`px-4 py-3 text-base font-medium transition-all rounded-2xl ${location.pathname === link.path
-                                            ? "bg-primary text-primary-foreground"
-                                            : "text-muted-foreground hover:bg-muted"
+                                        ? "bg-primary text-primary-foreground"
+                                        : "text-muted-foreground hover:bg-muted"
                                         }`}
                                     onClick={() => setIsOpen(false)}
                                 >
