@@ -22,7 +22,7 @@ export const submitContact = async (req, res) => {
         }
 
         const newContact = new Contact({ name, email, subject, message });
-        await newContact.save();
+        await newContact.save()
 
         // Send Email using Brevo
         if (process.env.BREVO_API_KEY) {
